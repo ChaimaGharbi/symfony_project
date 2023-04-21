@@ -50,4 +50,11 @@ class FirstController extends AbstractController
             'name'=> $name
     ]);
     }
+
+    #[Route(/*'multi/{entier1}/{entier2}', name: 'multiplication', requirements: ['entier1' => '\d+', 'entier2' => '\d+']*/
+            'multi/{entier1<\d+>}/{entier2<\d+>}', name: 'multiplication')]
+    public function multiplication($entier1, $entier2) {
+        $resultat = $entier1 * $entier2;
+        return new Response("<h1>$resultat</h1>");
+    }
 }

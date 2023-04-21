@@ -1,23 +1,16 @@
-<!DOCTYPE html>
-
-<title>Hello Personnes</title>
 <link rel="stylesheet" href="{{ asset('node_modules/bootstrap/dist/css/bootstrap.css') }}">
-
+<title>{{ personne.firstname }} {{ personne.name }}</title>
 {% block body %}
-    {% for message in app.session.flashBag.get('error')  %}
-        <div class="alert alert-warning">{{ message }}</div>
-    {% endfor %}
-<div class="row my-3 mx-5">
-    {% for personne in personnes %}
-    <div class="card p-2 m-2" style="width: 18rem;">
+<div class="row">
+    <div class="card col-md-3 offset-md-1 my-5" style=" width: 18rem;">
         <div class="card-body">
             <h5 class="card-title">{{ personne.name }}</h5>
             <h6 class="card-subtitle mb-2 text-muted">{{ personne.firstname }} {{ personne.name }}</h6>
             <p class="card-text">Age : {{ personne.age }}</p>
             <a href="#" class="card-link">Job : {{ personne.job }}</a>
-            <a href="{{ path('personne.detail', {id: personne.id}) }}" class="card-link">Details</a>
+            <a href="#" class="card-link">{{ personne.id }}</a>
         </div>
     </div>
-    {% endfor %}
 </div>
 {% endblock %}
+
